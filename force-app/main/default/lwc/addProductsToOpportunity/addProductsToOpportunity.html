@@ -1,0 +1,225 @@
+<template>
+    <template if:true={showProductScreen}>
+
+        <template if:true={isSelectStep}>
+
+            <div class="card">
+
+                <div class="card-header">Add Products</div>
+<template if:true={showFilters}>
+    <div class="filters">
+
+        <div class="filter-item">
+            <label class="slds-label">Search Product</label>
+            <input 
+                type="text"
+                class="search-input"
+                value={productNameFilter}
+                oninput={handleNameFilter}
+            />
+        </div>
+
+        <div class="filter-item">
+            <label class="slds-label">Principal</label>
+            <select class="slds-select" onchange={handleCategoryFilter}>
+                <template for:each={categoryOptions} for:item="opt">
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                </template>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label class="slds-label">Type</label>
+            <select class="slds-select" onchange={handleTypeFilter}>
+                <template for:each={typeOptions} for:item="opt">
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                </template>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label class="slds-label">Category</label>
+            <select class="slds-select" onchange={handleSubcategoryFilter}>
+                <template for:each={subcategoryOptions} for:item="opt">
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                </template>
+            </select>
+        </div>
+
+        <div class="search">
+            <div class="con-ser ref-icon" onclick={handleRefreshClick}>
+                <img src="/resource/ref" />
+            </div>
+        </div>
+        <div class="search">
+            <div class="con-ser" onclick={handleSearchClick}>
+                <img src="/resource/search" />
+            </div>
+        </div>
+
+    </div>
+</template>
+
+                <!-- Product Table -->
+                <div class="table-container">
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15px;">S.No</th>
+                                <th style="width: 15px;">
+                                    SELECT
+                                </th>
+                                <th style="width: 90px;">Product Name</th>
+                                <th style="width: 30px;">Product Code</th>
+                                <th style="width: 30px;">Principal</th>
+                                <th style="width: 30px;">Type</th>
+                                <th style="width: 30px;">Category</th>
+                                <th style="width: 180px;">Description</th>
+                                <th style="width: 40px;">HSN Code</th>
+                                <th style="width: 30px;">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={products} for:item="prod">
+                                <tr key={prod.Id}>
+                                    <td>{prod.serialNumber}</td>
+
+                                  <td style="display: flex; justify-content: center; align-items: center;">
+                                        <input
+                                            type="checkbox"
+                                            data-id={prod.Id}
+                                            checked={prod.isSelected}
+                                            onchange={handleCheckboxChange}
+                                        />
+                                    </td>
+
+                        <td>
+                            <a href={prod.productUrl} target="_blank">
+                                {prod.Name}
+                            </a>
+                        </td>      
+                                    <td>{prod.ProductCode}</td>
+                                    <td>{prod.Category}</td>
+                                    <td>{prod.Type}</td>
+                                    <td>{prod.Subcategory}</td>
+                                    <td>{prod.Description}</td>
+                                    <td>{prod.HSN}</td>
+                                    <td>{prod.UnitPrice}</td>
+                                  
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn btn-secondary" onclick={closeProductScreen}>Back</button>
+                    <button class="btn btn-primary" onclick={handleNext}>Next</button>
+                </div>
+
+            </div>
+
+        </template>
+
+                    <!-- <button class="btn btn-primary" onclick={handleAddMore}>Add More</button> -->
+
+        <!-- STEP 2: CONFIRM -->
+       <template if:true={isConfirmStep}>
+    <div class="card">
+        <div class="card-header">Confirm Products</div>
+
+        <div class="table-container">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15px;">S.No</th>
+                        <th style="width: 70px;">Product</th>
+                         <th style="width: 30px;">Principal</th>
+                                <th style="width: 30px;">Type</th>
+                                <th style="width: 30px;">Category</th>
+                        <th style="width: 40px;">HSN</th>
+                        <th style="width: 40px;">Quantity</th>
+                        <th style="width: 40px;">Price</th>
+                        <th style="width: 160px;">Remarks</th>
+                        <th style="width: 20px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={selectedProducts} for:item="prod" for:index="index">
+                        <tr key={prod.Id}>
+                            <td>{prod.serialNumber}</td>
+
+                            <td>
+                                <a href={prod.productUrl} target="_blank">
+                                    {prod.Name}
+                                </a>
+                            </td>
+
+                            <td>{prod.Category}</td>
+                            <td>{prod.Type}</td>
+                            <td>{prod.Subcategory}</td>
+
+                            <td>{prod.HSN}</td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="slds-input"
+                                    value={prod.Quantity}
+                                    data-id={prod.Id}
+                                    onchange={handleQuantityChange}
+                                />
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="slds-input"
+                                    value={prod.UnitPrice}
+                                    data-id={prod.Id}
+                                    onchange={handlePriceChange}
+                                />
+                            </td>
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="slds-input"
+                                    value={prod.Remarks}
+                                    data-id={prod.Id}
+                                    onchange={handleRemarksChange}
+                                />
+                            </td>
+
+       <td>
+    <lightning-icon
+        icon-name="utility:delete"
+        size="small"
+        class="delete-icon"
+        data-id={prod.Id}
+        onclick={handleDeleteProduct}
+    ></lightning-icon>
+</td>
+
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-secondary" onclick={handleBack}>Back</button>
+<button 
+    class="btn btn-primary" 
+    onclick={handleSave} 
+    disabled={isSaving}
+>
+    {saveLabel}
+</button>
+
+</div>
+    </div>
+</template>
+
+    </template>
+</template>

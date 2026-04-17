@@ -1,0 +1,253 @@
+:host {
+    display: block;
+    width: 100%;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+:host {
+    display: block;
+    width: 100%;
+    height: 70%vh;
+}
+
+
+.card {
+    width: 100%;
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Card */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.card-header {
+    background-color: #f4f6f9;
+    border-bottom: 1px solid #dddbda;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3e3e3c;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    background-color: #f4f6f9;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #dddbda;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.filter-item input{
+    width: 200px;
+    
+}
+.filter-item option{
+    width: 200px;
+
+}
+.filter-item select{
+    width: 200px;
+
+}
+.slds-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #514f4d;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.search
+{
+    padding-left: 40px;
+    padding-top: 18px;
+    display: flex;
+    align-items:end;
+    justify-content: center;
+}
+.slds-input,
+.slds-select {
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slds-input:focus,
+.slds-select:focus {
+    outline: none;
+    border-color: #0176d3;
+    box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.25);
+}
+
+.slds-input:hover,
+.slds-select:hover {
+    border-color: #0176d3;
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.product-table thead tr {
+    background-color: #f4f6f9;
+}
+
+.product-table th {
+    color: #514f4d;
+    padding: 10px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #dddbda;
+    border-bottom: 2px solid #dddbda;
+    white-space: nowrap;
+}
+
+.product-table tbody tr {
+    background-color: #ffffff;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tbody tr:hover {
+    background-color: #eaf4ff;
+    outline: 1px solid #0176d3;
+    outline-offset: -1px;
+}
+
+.product-table td {
+    border: 1px solid #dddbda;
+    padding: 8px;
+    text-align: left;
+    padding-left: 12px;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    vertical-align: middle;
+}
+
+.product-table td .slds-input {
+    width: 90%;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 100%;
+    left: 0;
+    z-index:100;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    padding: 16px 24px;
+    gap: 20px;
+    background-color: #f4f6f9;
+    border-top: 1px solid #dddbda;
+}
+
+.btn {
+    height: 32px;
+    padding: 0 16px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    border-radius: 4px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+    background-color: #0176d3;
+    border-color: #0176d3;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #014486;
+    border-color: #014486;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    border-color: #dddbda;
+    color: #3e3e3c;
+}
+
+.btn-secondary:hover {
+    background-color: #f4f6f9;
+    border-color: #0176d3;
+    color: #0176d3;
+}
+.search-input
+{
+    height: 30px;
+    border-radius: 4px;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #fde8e8;
+}
+.delete-icon {
+    cursor: pointer;
+    color: #c23934;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+}
+.ref-icon img
+{
+    width: 32px;
+    height: 32px;
+}
