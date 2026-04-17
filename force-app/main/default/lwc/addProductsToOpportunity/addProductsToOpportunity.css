@@ -251,16 +251,3 @@
     width: 32px;
     height: 32px;
 }
-.delete-icon {
-    cursor: pointer;
-    color: #c23934;
-}
-
-.delete-icon:hover {
-    transform: scale(1.2);
-}
-.ref-icon img
-{
-    width: 32px;
-    height: 32px;
-}
